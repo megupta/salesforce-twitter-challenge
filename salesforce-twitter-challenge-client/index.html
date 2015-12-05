@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="app/assets/js/vendor/jquery/2.1.1/jquery.js"></script>
+    <script src="app/assets/js/vendor/underscore/underscore.js"></script>
+    <script src="app/assets/js/vendor/backbone/backbone.js"></script>
+</head>
+<body>
+    <script src="app/assets/js/app.js"></script>
+    <script src="app/assets/js/model/User.js"></script>
+    <script src="app/assets/js/model/Tweet.js"></script>
+    <script src="app/assets/js/collection/Tweet.js"></script>
+
+    <script type="text/template" id="twitterFeedWidget-tweetList-item-template">
+        <li class="tweetList-item">
+            <div class="container">
+                <div class="tweetLeftColumn column">
+                    <div class="tweetUserProfileImage">
+                        <img src="<%= user.profile_image_url %>" height="48" width="48" />
+                    </div>
+                    <div class="tweetRetweetCount">
+                        <img src="app/assets/svg/retweet.svg" height="10" width="16" />
+                        <%= retweet_count %>
+                    </div>
+                </div>
+                <div class="tweetRightColumn column">
+                    <div class="tweetUser">
+                        <a class="user-name" href="http://www.twitter.com/<%= user.screen_name %>"><%= user.name %></a>
+                        <a class="screen-name" href="http://www.twitter.com/<%= user.screen_name %>">@<%= user.screen_name %></a></div>
+                    <div class="tweetText">
+                        <%= text %>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+    </script>
+
+    <script type="text/template" id="twitterFeedWidget-tweetList-template">
+        <div class="tweetList-container container">
+            <ul id="tweetList"></ul>
+        </div>
+    </script>
+    <script src="app/assets/js/view/TweetList.js"></script>
+
+    <script type="text/template" id="twitterFeedWidget-searchFilter-template">
+        <div class="searchFilter-container container">
+            <form class="searchFilter-form" onsubmit="return false;">
+                <input type="text" class="searchFilter-input" placeholder="Search Salesforce's Tweets" />
+            </form>
+        </div>
+    </script>
+    <script src="app/assets/js/view/SearchFilter.js"></script>
+
+    <script type="text/template" id="twitterFeedWidget-template">
+        <link href="app/assets/css/twitterFeedWidget.css" rel="stylesheet">
+        <div id="twitterFeedWidget">
+            <div class="container">
+                <div id="twitterFeedWidget-content"></div>
+            </div>
+        </div>
+    </script>
+    <script src="app/assets/js/view/TwitterFeed.js"></script>
+
+    <script>
+        var params = {
+                    el: $("body")
+                },
+                twitterFeedWidget = new App.View.TwitterFeed(params);
+    </script>
+</body>
+</html>

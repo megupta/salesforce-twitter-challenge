@@ -1,0 +1,19 @@
+{
+  "name": "salesforce-twitter-challenge-server",
+  "version": "1.0.0",
+  "description": "erver for salesforce's twitter challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "megupta.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "http": "0.0.0",
+    "morgan": "^1.6.1",
+    "tcomb": "^2.5.2",
+    "tcomb-validation": "^2.2.0",
+    "twitter": "^1.2.5"
+  }
+}
